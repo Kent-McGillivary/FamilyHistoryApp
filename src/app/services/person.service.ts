@@ -16,6 +16,10 @@ export class PersonService {
   getPersons(): Observable<Person[]> {
     return this.http.get('/api/persons').map(res => <Person[]>res.json());
   }
+  getPerson(id:string): Observable<Person> {
+    console.log("Get person with Id:" + id);
+    return this.http.get(`/api/person/${id}`).map(res => <Person>res.json());
+  }
 
  
 

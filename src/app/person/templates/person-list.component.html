@@ -1,0 +1,8 @@
+<h2>Persons</h2>
+<ul class="list">
+    <li *ngFor="let person of persons | async"
+    [class.selected]="isSelected(person)"
+    (click)="onSelect(person)">
+    <span class="badge">{{ person.personId }}</span> {{ person.firstName }} {{ person.lastName }}
+    </li>
+</ul>

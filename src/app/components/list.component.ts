@@ -5,16 +5,16 @@ import { Person } from '../models/person';
 import { PersonService } from '../services/person.service';
 
 const HEROES: Person[] = [
-  { id: 11, firstName: 'Mr. Nice', lastName:'t' },
-  { id: 12, firstName: 'Narco', lastName:'t' },
-  { id: 13, firstName: 'Bombasto', lastName:'t' },
-  { id: 14, firstName: 'Celeritas', lastName:'t' },
-  { id: 15, firstName: 'Magneta', lastName:'t' },
-  { id: 16, firstName: 'RubberMan', lastName:'t' },
-  { id: 17, firstName: 'Dynama', lastName:'t' },
-  { id: 18, firstName: 'Dr IQ', lastName:'t' },
-  { id: 19, firstName: 'Magma', lastName:'t' },
-  { id: 20, firstName: 'Tornado', lastName:'t' }
+  { personId: "11", firstName: 'Mr. Nice', lastName:'t' },
+  { personId: "12", firstName: 'Narco', lastName:'t' },
+  { personId: "13", firstName: 'Bombasto', lastName:'t' },
+  { personId: "14", firstName: 'Celeritas', lastName:'t' },
+  { personId: "15", firstName: 'Magneta', lastName:'t' },
+  { personId: "16", firstName: 'RubberMan', lastName:'t' },
+  { personId: "17", firstName: 'Dynama', lastName:'t' },
+  { personId: "18", firstName: 'Dr IQ', lastName:'t' },
+  { personId: "19", firstName: 'Magma', lastName:'t' },
+  { personId: "20", firstName: 'Tornado', lastName:'t' }
 ];
 
 @Component({

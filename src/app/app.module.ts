@@ -2,24 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
-import { ListComponent} from './components/list.component'
-
-import { PersonService } from './services/person.service';
+import { AppRoutingModule } from './app-routing.module';
+import { PersonModule }     from './person/person.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
-  ],
-   providers: [
-    PersonService
+    HttpModule,
+    PersonModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

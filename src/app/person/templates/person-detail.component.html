@@ -1,0 +1,16 @@
+<h2>Person Details</h2>
+  <div *ngIf="person">
+    <div>
+      <label>Id: </label>{{ person.personId }}</div>
+    <div>
+      <label>Name: </label>
+      <span>{{ person.firstName }} {{ person.lastName }} </span>
+    </div>
+    <div>
+      <label>Parent:</label>
+       <a routerLink="/person/LCM9-9ND" routerLinkActive="active">Parent</a>
+    </div>
+    <p>
+      <button (click)="goBack()">Back</button>
+    </p>
+  </div>

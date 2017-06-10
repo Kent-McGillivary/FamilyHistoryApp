@@ -40,6 +40,7 @@ abstract class BaseCtrl {
       res.json(obj);
     });
   }
+  
 
   // Update by id
   update = (req, res) => {
