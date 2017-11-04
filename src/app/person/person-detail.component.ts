@@ -19,6 +19,7 @@ export class PersonDetailComponent implements OnInit {
   @HostBinding('style.position')  position = 'absolute';
 
   person: Person;
+  parentLink:String;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,17 +30,21 @@ export class PersonDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params
-      // (+) converts string 'id' to a number
+
+    
+   this.route.params
       .switchMap((params: Params) => {
+        if(params["personId"] === "K1WK-GTK" ) {
+          this.parentLink = "/person/LCM9-9ND";
+        }
+        else {
+          this.parentLink = "/person/K1WK-GTK";
+        }
+
         return this.service.getPerson(params['personId']);
-        //let personObj:Observable<Person> = this.service.getPerson(params['id']);
-       // console.log("FirstName: " + personObj.firstName)
-       //return personObj;
       })
       .subscribe((person: Person) => {
         this.person = person;
-        console.log("Set Person Detail FirstName:" + person.firstName + " LastName:" + person.lastName);
       });
   }
 

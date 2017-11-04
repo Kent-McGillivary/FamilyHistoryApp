@@ -22,38 +22,33 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
 dotenv.load({ path: '.env' });
-var myEnv = dotenv.config();
-var expand = dotenvExpand(myEnv);
-var stringMyEnv = JSON.stringify(myEnv);
-var expandMyEnv = JSON.stringify(expand);
-var processEnv = JSON.stringify(process.env);
+const myEnv = dotenv.config();
+const expand = dotenvExpand(myEnv);
 
-//console.log("MongoDBString:" + stringMyEnv);
-//console.log("MongoDBExpand:" + expandMyEnv);
-//console.log("MongoDB ProcessEnv:" + processEnv);
-console.log("MongoDB Url:" + process.env.MONGODBURI);
+const processEnv = JSON.stringify(process.env);
 
-mongoose.connect(process.env.MONGODBURI);
-const db = mongoose.connection;
-(<any>mongoose).Promise = global.Promise;
+console.log('MongoDB Url:' + process.env.MONGODBURI);
 
-/*db.on('error', console.error.bind(console, 'connection error:'));*/
-db.on('error',function(error){
-  console.log("Error: " +JSON.stringify(error));
+mongoose.Promise = global.Promise;
+
+let promise = mongoose.connect(process.env.MONGODBURI,{
+  useMongoClient: true
 });
-db.once('open', () => {
-  console.log('Connected to MongoDB');
 
+promise.then(function(db:any) {
+  console.log('Connected to MongoDB');
   setRoutes(app);
 
- app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  });
 
   app.listen(app.get('port'), () => {
     console.log('Angular 2 Full Stack listening on port ' + app.get('port'));
   });
-
+})
+.catch((err) => {
+  console.error(err);
 });
 
 export { app };

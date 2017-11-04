@@ -8,7 +8,7 @@ export default class PersonCtrl extends BaseCtrl {
   getPersonAll = (req, res) => {
     this.model.find({}, (err, docs) => {
       if (err) { return console.error(err); }
-     
+
       res.json(docs);
     });
   }
