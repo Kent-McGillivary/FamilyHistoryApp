@@ -2,7 +2,7 @@ import * as bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
 import * as dotenvExpand from 'dotenv-expand';
 import * as express from 'express';
-import * as morgan from 'morgan';
+import * as morgan from 'morgan';// For logs on server side
 import * as mongoose from 'mongoose';
 import * as path from 'path';
 

@@ -1,9 +1,8 @@
-import { NgModule }       from '@angular/core';
-import { CommonModule }   from '@angular/common';
-import { FormsModule }    from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { PersonListComponent }    from './person-list.component';
-import { PersonDetailComponent }  from './person-detail.component';
+import { PersonDetailComponent } from './person-detail.component';
 
 import { PersonService } from './../services/person.service';
 
@@ -16,8 +15,7 @@ import { PersonsRoutingModule } from './persons-routing.module';
     PersonsRoutingModule
   ],
   declarations: [
-    PersonListComponent,
-    PersonDetailComponent
+     PersonDetailComponent
   ],
   providers: [ PersonService ]
 })
