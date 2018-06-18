@@ -10,11 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { PersonModule } from './person/person.module';
 
 import { SearchPersonComponent } from './search/search-person.component';
+import { PersonListComponent } from './search/person-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchPersonComponent
+    SearchPersonComponent,
+    PersonListComponent
   ],
   imports: [
     BrowserModule,

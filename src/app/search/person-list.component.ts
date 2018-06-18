@@ -9,8 +9,8 @@ import { PersonService } from '../services/person.service';
 
 @Component({
   selector: 'person-list-items',
-  templateUrl: './templates/person-list.component.html',
-  styleUrls: ['./css/person-list.component.css']
+  templateUrl: './person-list.component.html',
+  styleUrls: ['./person-list.component.css']
 })
 
 

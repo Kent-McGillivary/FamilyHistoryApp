@@ -21,6 +21,4 @@ export class PersonService {
     return this.http.get(`/api/person/${id}`).map(res => <Person>res.json());
   }
 
- 
-
 }
