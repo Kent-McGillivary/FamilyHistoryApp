@@ -1,11 +1,12 @@
 // TODO SOMEDAY: Feature Componetized like CrisisCenter
-import 'rxjs/add/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Person } from '../models/person';
 import { PersonService } from '../services/person.service';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'person-list-items',
@@ -27,10 +28,10 @@ export class PersonListComponent implements OnInit {
 
   ngOnInit() {
     this.persons = this.route.params
-      .switchMap((params: Params) => {
+    .pipe(switchMap((params: Params) => {
         this.selectedId = params['id'];
         return this.service.getPersons();
-      });
+      }));
   }
 
   isSelected(person: Person) { return person.personId === this.selectedId; }

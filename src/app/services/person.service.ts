@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+
+
 import { Person } from '../models/person';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class PersonService {
 
-  private headers = new Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
-  private options = new RequestOptions({ headers: this.headers });
-
-  constructor(private http: Http) { }
+  
+  constructor(private http:HttpClient) { }
 
   getPersons(): Observable<Person[]> {
-    return this.http.get('/api/persons').map(res => <Person[]>res.json());
+    return this.http.get<Person[]>('/api/persons');
   }
   getPerson(id:string): Observable<Person> {
     console.log("Get person with Id:" + id);
-    return this.http.get(`/api/person/${id}`).map(res => <Person>res.json());
+    return this.http.get<Person>(`/api/person/${id}`);
   }
 
 }

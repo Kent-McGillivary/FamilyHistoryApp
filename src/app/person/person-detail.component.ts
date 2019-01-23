@@ -1,11 +1,12 @@
-import 'rxjs/add/operator/switchMap';
+
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 import { PersonService } from './../services/person.service';
 import { Person } from './../models/person';
-import { Observable } from 'rxjs/Observable';
+
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class PersonDetailComponent implements OnInit {
   ngOnInit() {
 
    this.route.params
-      .switchMap((params: Params) => {
+   .pipe(switchMap(((params: Params) => {
         if(params["personId"] === "K1WK-GTK" ) {
           this.parentLink = "/person/LCM9-9ND";
         }
@@ -39,7 +40,7 @@ export class PersonDetailComponent implements OnInit {
         }
 
         return this.service.getPerson(params['personId']);
-      })
+      })))
       .subscribe((person: Person) => {
         this.person = person;
       });

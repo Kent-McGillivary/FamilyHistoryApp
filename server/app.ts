@@ -31,9 +31,7 @@ console.log('MongoDB Url:' + process.env.MONGODBURI);
 
 mongoose.Promise = global.Promise;
 
-let promise = mongoose.connect(process.env.MONGODBURI,{
-  useMongoClient: true
-});
+let promise = mongoose.connect(process.env.MONGODBURI,{ useNewUrlParser: true });
 
 promise.then(function(db:any) {
   console.log('Connected to MongoDB');
